@@ -1,0 +1,473 @@
+/* Sean Tiner 2025 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+    font-family: sans-serif;
+}
+
+@media only screen and (max-width: 550px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Splash Image ---------------------------------*/
+.splashImage {
+    position: relative;
+    text-align: center;
+}
+
+.splashImage img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    display: block;
+}
+
+.splashImageText {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -40%);
+    color: rgba(250, 111, 51, 1);
+    font-size: 3rem;
+}
+
+
+/* Navbar -------------------------------------------------------*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(217, 217, 217, 0.5);
+    border: 1px solid white;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.navMenu {
+    list-style-type: none;
+    display: flex;
+}
+
+.navMenu.mobile {
+    display: none;
+}
+
+.navMenuItem {
+    padding: 2rem;
+}
+
+.navMenuItem a {
+    color: rgba(250, 111, 51, 1);
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.navLogo {
+    padding: 16px;
+}
+
+.navLogo img {
+    cursor: pointer;
+}
+
+.hamburgerButton {
+    position: absolute;
+    left: 2rem;
+    display: none;
+    width: 40px;
+    height: 30px;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.hamburgerLine {
+    width: 100%;
+    height: 4px;
+    background-color: rgba(250, 111, 51, 1);
+    transition: all 0.2s;
+    transform-origin: center;
+}
+
+.hamburgerButton:hover .hamburgerLine {
+    opacity: 0.7;
+}
+
+.hamburgerButton.active .hamburgerLine:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 4px);
+}
+
+.hamburgerButton.active .hamburgerLine:nth-child(2) {
+    transform: rotate(-45deg) translate(7px, -4px);
+}
+
+
+/* Mobile Nav Menu -----------------------------------------*/
+.mobileNavContainer {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(217, 217, 217, 0.5);
+    backdrop-filter: blur(10px);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.mobileNavContainer.show {
+    width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+    .navMenu {
+        display: none;
+    }
+
+    .navMenu.mobile {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;   
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    .navLogo img {
+        max-width: 75%;
+        margin: auto;
+        display: block;
+    }
+
+    .hamburgerButton {
+        display: flex;
+    }
+}
+
+/* First Content Section -----------------------------------------------------------------------------------*/
+.wideSection {
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(217, 217, 217, 1), rgba(219, 255, 253, 1));
+    min-height: 50vh;
+    display: flex;
+}
+
+.sectionContent {
+    width: 70%;
+    margin: auto;
+    padding: 1rem 0;
+    display: flex;
+}
+
+.sectionContentText {
+    display: flex;
+    flex-direction: column;
+    width: 50%;  
+}
+
+.textWrapper * {
+    margin-bottom: 1.5rem;
+}
+
+.textWrapper {
+    width: 70%;
+}
+
+.textWrapper h1 {
+    color: rgba(250, 111, 51, 1);
+    font-size: 2.5rem;
+}
+
+.sectionContentImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.sectionContentImage img {
+    width: 100%;
+    border-radius: 50px;
+}
+
+.button, .buttonArrow {
+    color: rgba(250, 111, 51, 1);
+    font-size: 1.5rem;
+}
+
+.button {
+    padding: 1rem;
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.button:hover {
+    background-color: rgba(250, 111, 51, 1);
+    color: white;
+}
+
+.buttonArrow {
+    transition: all 0.3s;
+}
+
+.button:hover .buttonArrow {
+    color: white;
+}
+
+@media only screen and (max-width: 800px) {
+    .sectionContent {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .sectionContentText {
+        width: 80%;
+    }
+
+    .textWrapper {
+        width: 100%;
+    }
+
+    .sectionContentImage {
+        width: 100%;
+    }
+
+    .sectionContentImage img {
+        border-radius: 0;
+    }
+
+}
+
+/* Parallax Image + Text -----------------------------------------------------*/
+.parallaxContainer {
+    position: relative;
+    background-image: url("img/derek-thomson-TWoL-QCZubY-unsplash.jpg");
+    min-height: 100vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.parallaxText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(250, 111, 51, 1);
+    font-size: 3rem;
+    text-align: center;
+}
+
+@media only screen and (max-width: 550px) {
+    .parallaxContainer {
+        background-attachment: scroll;
+    }
+}
+
+/* Additional Content/Grid ------------------------------------------------------------------------*/
+.secondSectionContent {
+    width: 70%;
+    background-image: linear-gradient(to right, rgba(217, 217, 217, 1), rgba(219, 255, 253, 1));
+    margin: 3rem auto;
+    border-radius: 50px;
+    padding: 3rem;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.gridItem {
+    width: 100%;
+    position: relative;
+}
+
+.gridItem img {
+    width: 100%;
+    border-radius: 50px;
+    transition: all 0.2s;
+}
+
+.gridItem:hover img {
+    opacity: 0.5;
+}
+
+.cardButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.gridItem:hover button {
+    opacity: 1;
+}
+
+.gridItem h1 {
+    color: rgba(250, 111, 51, 1);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.gridItem p {
+    margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 1400px) {
+    .secondSectionContent {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .gridContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .secondSectionContent {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .gridItem img {
+        border-radius: 20px;
+    }
+}
+
+/* Blurred image w/ text (Banner) ------------------------*/
+.blurImageContainer {
+    position: relative;
+    text-align: center;
+}
+
+.blurImageContainer img {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    filter: blur(5px);
+}
+
+.blurImageText {
+    color: rgba(250, 111, 51, 1);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.blurImageContent {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+}
+
+/* Footer -------------------------------------------------------------------------------------------*/
+.flexFooter {
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(217, 217, 217, 1), rgba(219, 255, 253, 1));
+    margin-top: 3rem;
+}
+
+.flexFooterContent {
+    width: 70%;
+    display: flex;
+    margin: auto;
+    padding: 4rem 0;
+    align-items: center;
+}
+
+.flexFooterColumn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.flexFooterColumn > div, 
+.flexFooterColumn > h1, 
+.flexFooterColumn > p, 
+.flexFooterColumn > picture {
+    margin-bottom: 3rem;
+}
+
+@media only screen and (max-width: 1075px) {
+    .flexFooterContent {
+        flex-direction: column;
+    }
+}
+
+/* Single Underline text effect ---------------------------------------*/
+.singleUnderline {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.singleUnderline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1.5px;
+    background-color: rgba(250, 111, 51, 1);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+}
+
+.singleUnderline.black::after {
+    background-color: black;
+}
+
+
+.singleUnderline:hover::after {
+    transform: scaleX(1);
+}
+
+/* Animations -------------------------------------------*/
+.animateTransition {
+    transition: opacity 1s, translate 1s;
+}
+
+.animateOnScrollFade {
+    opacity: 0;
+}
+
+.animateFromTop {
+    translate: 0 -50px;
+}
+
+.animate {
+	opacity: 1;
+    translate: 0 0;
+}
